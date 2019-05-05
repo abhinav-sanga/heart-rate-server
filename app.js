@@ -57,7 +57,6 @@ io.on('connection', socket => {
 							}
 							else {
 								console.log("bodyy: ", body);
-
 							}
 						});
 					}
