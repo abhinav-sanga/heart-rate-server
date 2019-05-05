@@ -4,18 +4,27 @@
 
 1. Clone the repo to your local machine and in the project root directory, open command window and type `npm install`.
 
-2. Soon after the packages get installed, enter the command `docker build -t node-docker-app .` in the terminal to build Docker image from the Dockerfile.
+2. Provide your aws security credentials like *AWS_ACCESS_KEY_ID*, *AWS_SECRET_ACCESS_KEY* and *AWS_DEFAULT_REGION* in the environment variables of **docker-compose.yml** file.
 
-3. You can then type `docker run -p 8085:9001 node-docker-app` to run the docker image in an isolated container using the port **8085**
+--------------
 
-4. Now, open another command prompt window in the project root directory and enter `docker run -p 8000:8000 amazon/dynamodb-local`. 
+**NOTE:** If you run the application using Docker for Windows, use `localhost` instead of `192.168.99.100`, which is the default host address when using Docker Toolbox.
+Changes to be made are in **app.js**, **index.js**, **config/config.js** in server project folder and in **./src/environments** folder in (https://github.com/abhinav-sanga/heart-rate-ui.git).
 
-5. The server is now running on docker container.
+--------------
 
-6. Clone the **heart-rate-ui** repo (https://github.com/abhinav-sanga/heart-rate-ui.git) in any folder outside the project directory and open command window in that project root directory.
+3. Then enter the command `docker-compose build` in the terminal to build Docker images from the docker-compose.yml file.
 
-7. Install the dependencies using the command `npm install`.
+4. You can then type `docker-compose up` to run multiple docker images in the containers using the port **8085** for server and **8000** for dynamoDB-local.
 
-8. After the completion of installation, enter the command `ng serve` to start the Angular server.
+5. Make sure that the ports provided above are available.
 
-9. Go to (http://localhost:4200/) in your browser.
+6. The server and dynamodb-local are now running on docker containers.
+
+7. Clone the **heart-rate-ui** repo (https://github.com/abhinav-sanga/heart-rate-ui.git) in any folder outside the project directory and open command window in that project root directory.
+
+8. Install the dependencies using the command `npm install`.
+
+9. After the completion of installation, enter the command `ng serve` to start the Angular server.
+
+10. Go to (http://localhost:4200/) in your browser.

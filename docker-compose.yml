@@ -13,5 +13,9 @@ services:
     image: amazon/dynamodb-local
     ports:
       - '8000:8000'
+    environment:
+      - AWS_ACCESS_KEY_ID= your_access-key_id
+      - AWS_SECRET_ACCESS_KEY= your_secret_access_key
+      - AWS_DEFAULT_REGION= your_region
     hostname: dynamodb
     restart: always
