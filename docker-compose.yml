@@ -1,0 +1,17 @@
+version: '3'
+services:
+  app:
+    container_name: docker-node-dynamo
+    restart: always
+    build: .
+    ports:
+      - '8085:9001'
+    links: 
+      - dynamodb
+  dynamodb:
+    container_name: dynamodb
+    image: amazon/dynamodb-local
+    ports:
+      - '8000:8000'
+    hostname: dynamodb
+    restart: always
